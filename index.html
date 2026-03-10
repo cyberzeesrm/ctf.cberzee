@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAD 2.0 — Root Access Denied | CyberZee × Verge 2026</title>
+  <meta name="description" content="RAD Cyber CTF — Root Access Denied 2.0. A Jeopardy-style Capture The Flag competition hosted by CyberZee at SRM University Delhi-NCR, Sonepat. Part of Verge 2026.">
+  <meta property="og:title" content="RAD 2.0 — Root Access Denied | CyberZee CTF">
+  <meta property="og:description" content="Jeopardy CTF | Verge 2026 | SRM University Delhi-NCR">
+  <meta property="og:url" content="https://ctf.cyberzee.space">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='none' stroke='%23c8a84b' stroke-width='2'/><text x='50%' y='55%' font-size='13' font-family='monospace' font-weight='900' fill='%23c8a84b' text-anchor='middle' dominant-baseline='middle'>R</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+
+<!-- ── Canvas background ── -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      RAD<span style="opacity:0.6">2.0</span>
+    </a>
+
+    <button id="nav-toggler" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#categories">Challenges</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#rules">Rules</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li>
+        <a href="https://unstop.com/competitions/rad-cyber-ctf-verge-2026-srm-university-delhi-ncr-sonepat-1647956"
+           target="_blank" rel="noopener"
+           style="color:var(--gold);border:1px solid var(--border-m);border-radius:4px;padding:0.35rem 0.85rem;">
+          Register ↗
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero">
+
+  <p class="hero-presenter">CyberZee Presents</p>
+
+  <div id="hero-card">
+    <!-- Internal border glow -->
+    <div class="card-border-glow"></div>
+
+    <!-- Big title -->
+    <h1 class="hero-title">RAD2.0</h1>
+
+    <!-- Divider -->
+    <div class="hero-divider"></div>
+
+    <!-- Full form -->
+    <div class="hero-subtitle-wrap">
+      <span class="hero-subtitle">Root Access Denied 2.0</span>
+    </div>
+
+    <!-- Tagline -->
+    <p class="hero-tagline">"We do not go gentle into that good night."</p>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap">
+      <p class="countdown-label">Mission Launches In</p>
+
+      <div id="cd-live">
+        &#9670;&nbsp;&nbsp; MISSION IS LIVE &nbsp;&nbsp;&#9670;
+      </div>
+
+      <div id="countdown-wrap" class="countdown-grid">
+        <div class="cd-item">
+          <div class="cd-box"><span class="cd-num" id="cd-days">--</span></div>
+          <span class="cd-unit">Days</span>
+        </div>
+        <div class="cd-item">
+          <div class="cd-box"><span class="cd-num" id="cd-hours">--</span></div>
+          <span class="cd-unit">Hours</span>
+        </div>
+        <div class="cd-item">
+          <div class="cd-box"><span class="cd-num" id="cd-mins">--</span></div>
+          <span class="cd-unit">Mins</span>
+        </div>
+        <div class="cd-item">
+          <div class="cd-box"><span class="cd-num" id="cd-secs">--</span></div>
+          <span class="cd-unit">Secs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single CTA -->
+    <div class="hero-cta">
+      <a href="https://unstop.com/competitions/rad-cyber-ctf-verge-2026-srm-university-delhi-ncr-sonepat-1647956"
+         target="_blank" rel="noopener"
+         class="btn-register">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h6v6M10 14L21 3M18 13v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h8"/>
+        </svg>
+        Register on Unstop
+      </a>
+    </div>
+
+    <!-- Bottom-right hacker bars -->
+    <div class="card-deco" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- Scroll nudge -->
+  <div class="hero-scroll">
+    <span class="hero-scroll-label">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════
+     EVENT QUICK-STATS STRIP
+════════════════════════════════════════ -->
+<div id="about-strip">
+  <div class="container">
+    <div class="about-strip-inner">
+      <div class="strip-item reveal">
+        <div class="strip-label">Event</div>
+        <div class="strip-value gold">RAD Cyber CTF</div>
+      </div>
+      <div class="strip-item reveal reveal-delay-1">
+        <div class="strip-label">Part Of</div>
+        <div class="strip-value">Verge 2026</div>
+      </div>
+      <div class="strip-item reveal reveal-delay-2">
+        <div class="strip-label">Hosted By</div>
+        <div class="strip-value">CyberZee</div>
+      </div>
+      <div class="strip-item reveal reveal-delay-3">
+        <div class="strip-label">Venue</div>
+        <div class="strip-value">SRM University, Sonepat</div>
+      </div>
+      <div class="strip-item reveal reveal-delay-4">
+        <div class="strip-label">Format</div>
+        <div class="strip-value gold">Jeopardy CTF</div>
+      </div>
+      <div class="strip-item reveal reveal-delay-1">
+        <div class="strip-label">Mode</div>
+        <div class="strip-value">Online + Offline</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     ABOUT THE EVENT
+════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">About the Mission</span>
+      <h2 class="section-title">What is RAD 2.0?</h2>
+      <p class="section-sub">
+        A flagship cybersecurity Capture The Flag competition — where hackers, defenders, and interstellar thinkers collide.
+      </p>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-card reveal">
+        <span class="about-card-icon">🛰️</span>
+        <div class="about-card-title">The Event</div>
+        <p class="about-card-text">
+          <strong>RAD Cyber CTF — Root Access Denied 2.0</strong> is a Jeopardy-style cybersecurity competition hosted by <strong>CyberZee</strong>, the cybersecurity club of SRM University, Delhi-NCR, Sonepat. Part of the annual technical fest <strong>Verge 2026</strong>, RAD 2.0 challenges participants to push limits across web exploitation, cryptography, forensics, OSINT, and reverse engineering.
+        </p>
+      </div>
+
+      <div class="about-card reveal reveal-delay-1">
+        <span class="about-card-icon">🌌</span>
+        <div class="about-card-title">The Theme</div>
+        <p class="about-card-text">
+          Inspired by <strong>Interstellar</strong> — traversing the unknown, bending the rules of the digital cosmos, and finding signal in the noise. This isn't just a CTF. It's an expedition into the depths of cyberspace. <strong>Do you have the clearance to go beyond?</strong>
+        </p>
+      </div>
+
+      <div class="about-card reveal reveal-delay-2">
+        <span class="about-card-icon">⚡</span>
+        <div class="about-card-title">Why Participate?</div>
+        <p class="about-card-text">
+          Compete against teams from across the country. Build real-world cybersecurity skills, earn recognition, and connect with a growing community of ethical hackers and security professionals. <strong>All skill levels welcome</strong> — from first-timers to seasoned CTF players.
+        </p>
+      </div>
+
+      <div class="about-card reveal reveal-delay-3">
+        <span class="about-card-icon">🏆</span>
+        <div class="about-card-title">Prizes &amp; Recognition</div>
+        <p class="about-card-text">
+          Top teams win <strong>cash prizes, certificates, and trophies</strong>. All participants receive a participation certificate. Special awards for best writeups and first blood. Winners get featured on the CyberZee hall of fame and gain direct visibility within our partner network.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     CHALLENGE CATEGORIES
+════════════════════════════════════════ -->
+<section id="categories">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">What Awaits You</span>
+      <h2 class="section-title">Challenge Categories</h2>
+      <p class="section-sub">Navigate across domains — each a different quadrant of the cyber universe.</p>
+    </div>
+
+    <div class="cat-grid">
+      <div class="cat-item reveal">
+        <span class="cat-icon">🌐</span>
+        <span class="cat-name">Web Exploitation</span>
+      </div>
+      <div class="cat-item reveal reveal-delay-1">
+        <span class="cat-icon">🔐</span>
+        <span class="cat-name">Cryptography</span>
+      </div>
+      <div class="cat-item reveal reveal-delay-2">
+        <span class="cat-icon">🔍</span>
+        <span class="cat-name">Forensics</span>
+      </div>
+      <div class="cat-item reveal reveal-delay-3">
+        <span class="cat-icon">⚙️</span>
+        <span class="cat-name">Reverse Engineering</span>
+      </div>
+      <div class="cat-item reveal">
+        <span class="cat-icon">🛡️</span>
+        <span class="cat-name">Binary Exploitation</span>
+      </div>
+      <div class="cat-item reveal reveal-delay-1">
+        <span class="cat-icon">🕵️</span>
+        <span class="cat-name">OSINT</span>
+      </div>
+      <div class="cat-item reveal reveal-delay-2">
+        <span class="cat-icon">📡</span>
+        <span class="cat-name">Misc &amp; Trivia</span>
+      </div>
+      <div class="cat-item reveal reveal-delay-3">
+        <span class="cat-icon">🧩</span>
+        <span class="cat-name">Steganography</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     SCHEDULE
+════════════════════════════════════════ -->
+<section id="schedule">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Mission Timeline</span>
+      <h2 class="section-title">Event Schedule</h2>
+      <p class="section-sub">Mark your coordinates. Every second counts.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-time">Now Open</div>
+        <div class="tl-title">Registrations Open</div>
+        <div class="tl-desc">Register on Unstop. Individual or team registration. No entry fee.</div>
+      </div>
+      <div class="tl-item reveal reveal-delay-1">
+        <div class="tl-time">April 12, 2025 · 10:00 AM IST</div>
+        <div class="tl-title">CTF Portal Goes Live</div>
+        <div class="tl-desc">The CTFd platform opens. Challenges release simultaneously across all categories.</div>
+      </div>
+      <div class="tl-item reveal reveal-delay-2">
+        <div class="tl-time">April 12, 2025 · 10:00 AM – April 13 · 10:00 AM</div>
+        <div class="tl-title">24-Hour Hack Window</div>
+        <div class="tl-desc">Solve flags, climb the scoreboard, and earn first-blood bonuses. Dynamic scoring active.</div>
+      </div>
+      <div class="tl-item reveal reveal-delay-3">
+        <div class="tl-time">April 13, 2025 · 10:00 AM IST</div>
+        <div class="tl-title">CTF Closes</div>
+        <div class="tl-desc">Platform locks. Final scoreboard freezes. Top teams move to result declaration.</div>
+      </div>
+      <div class="tl-item reveal reveal-delay-4">
+        <div class="tl-time">TBA · Verge 2026 Main Stage</div>
+        <div class="tl-title">Results &amp; Prize Distribution</div>
+        <div class="tl-desc">Winners announced live on stage. Trophies, cash prizes, and certificates distributed.</div>
+      </div>
+    </div>
+
+    <!-- Note -->
+    <p style="text-align:center;margin-top:2.5rem;font-family:var(--font);font-size:0.56rem;letter-spacing:0.3em;color:rgba(136,152,187,0.45);text-transform:uppercase;" class="reveal">
+      All times in IST · Schedule subject to change
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     RULES & ELIGIBILITY
+════════════════════════════════════════ -->
+<section id="rules">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Protocols &amp; Clearance</span>
+      <h2 class="section-title">Rules &amp; Eligibility</h2>
+    </div>
+
+    <div class="rules-grid">
+      <div class="reveal">
+        <div class="rules-block-title">Eligibility</div>
+        <ul class="rules-list">
+          <li>Open to <strong>all students</strong> — UG, PG, and school level.</li>
+          <li>Participants from <strong>any institution</strong> across India can compete.</li>
+          <li>Teams of <strong>1–4 members</strong> allowed.</li>
+          <li><strong>No prior CTF experience</strong> required — beginners welcome.</li>
+          <li>Registration through <strong>Unstop only</strong> (link in nav &amp; CTA).</li>
+        </ul>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="rules-block-title">Competition Rules</div>
+        <ul class="rules-list">
+          <li>Flag format will be disclosed at start — do <strong>not</strong> brute-force the flag submission system.</li>
+          <li><strong>No sharing</strong> of flags, solutions, or writeups during the active window.</li>
+          <li>Attacking the CTFd <strong>infrastructure</strong> or other teams is strictly prohibited.</li>
+          <li>Use of <strong>automated scanners</strong> against the platform is banned.</li>
+          <li>Decisions of the <strong>CyberZee organizing team</strong> are final.</li>
+          <li>Violations result in immediate <strong>disqualification</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     COMMUNITY PARTNERS
+════════════════════════════════════════ -->
+<section id="partners">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Interstellar Alliance</span>
+      <h2 class="section-title">Community Partners</h2>
+      <p class="section-sub">The crew that makes the mission possible.</p>
+    </div>
+
+    <div class="partners-grid">
+
+      <!--
+        ══════════════════════════════════════════════════════════
+        HOW TO ADD PARTNER LOGOS
+        ──────────────────────────────────────────────────────────
+        Replace a placeholder card below with:
+
+        <div class="partner-card">
+          <img src="img/partner-name.png" alt="Partner Name" loading="lazy">
+        </div>
+
+        Or for a linked partner:
+        <a class="partner-card" href="https://partner.com" target="_blank" rel="noopener">
+          <img src="img/partner-name.png" alt="Partner Name" loading="lazy">
+        </a>
+
+        Recommended image size: 300×120px, PNG with transparent bg.
+        Place images in an /img/ folder next to index.html.
+        ══════════════════════════════════════════════════════════
+      -->
+
+      <div class="partner-card">
+        <div class="partner-ph">
+          <span class="partner-ph-icon">🛰️</span>
+          Community Partner 1
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-ph">
+          <span class="partner-ph-icon">🌐</span>
+          Community Partner 2
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-ph">
+          <span class="partner-ph-icon">🔐</span>
+          Community Partner 3
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-ph">
+          <span class="partner-ph-icon">⚡</span>
+          Community Partner 4
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-ph">
+          <span class="partner-ph-icon">🛡️</span>
+          Community Partner 5
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-ph">
+          <span class="partner-ph-icon">🚀</span>
+          Community Partner 6
+        </div>
+      </div>
+
+    </div>
+
+    <p class="partners-note reveal">Traversing the cosmos — together</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FINAL CTA BAND
+════════════════════════════════════════ -->
+<section id="cta-band">
+  <div class="container">
+    <div class="reveal">
+      <p class="cta-band-title">Ready to Breach the Unknown?</p>
+      <p class="cta-band-sub">Register now on Unstop — free entry, open to all students.</p>
+      <a href="https://unstop.com/competitions/rad-cyber-ctf-verge-2026-srm-university-delhi-ncr-sonepat-1647956"
+         target="_blank" rel="noopener"
+         class="btn-register">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h6v6M10 14L21 3M18 13v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h8"/>
+        </svg>
+        Register on Unstop
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">RAD 2.0 &nbsp;×&nbsp; CyberZee</span>
+      <div class="footer-links">
+        <a href="https://unstop.com/competitions/rad-cyber-ctf-verge-2026-srm-university-delhi-ncr-sonepat-1647956"
+           target="_blank" rel="noopener">Unstop ↗</a>
+        <a href="mailto:cyberzee@srm.edu.in">Contact</a>
+      </div>
+      <span class="footer-copy">© 2026 CyberZee · SRM University Delhi-NCR, Sonepat</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
