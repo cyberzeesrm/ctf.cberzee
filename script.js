@@ -226,11 +226,11 @@
 
   /* ═══════════════════════════════════════
      COUNTDOWN TIMER
-     Target: April 12, 2025, 10:00 AM IST
+     Target: April 14, 2026, 10:00 AM IST
      UPDATE this date to the real event date
   ═══════════════════════════════════════ */
   // Set your event date here (IST = UTC+5:30)
-  var EVENT_DATE = new Date('2025-03-14T10:00:00+05:30');
+  var EVENT_DATE = new Date('2026-03-14T10:00:00+05:30');
 
   var cdDays  = document.getElementById('cd-days');
   var cdHours = document.getElementById('cd-hours');
